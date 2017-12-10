@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkgApp.controller.RetirementController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkgApp.controller.RetirementController">
    <bottom>
       <HBox prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
    </bottom>
@@ -24,15 +24,15 @@
    <top>
       <HBox alignment="TOP_CENTER" prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Retirement Calculator" />
+            <Label prefHeight="64.0" prefWidth="393.0" styleClass="label-header" text="Retirement Calculator" />
          </children>
       </HBox>
    </top>
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="186.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="214.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -48,22 +48,22 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Save Each Month" />
-            <Label text="Years to Work" GridPane.rowIndex="1" />
-            <Label text="Annual Return" GridPane.rowIndex="2" />
-            <Label text="What you need to save" GridPane.rowIndex="4" />
-            <Label text="Years Retired" GridPane.rowIndex="6" />
-            <Label text="Annual Return" GridPane.rowIndex="7" />
-            <Label text="Required Income" GridPane.rowIndex="8" />
-            <Label text="Monthly SSI" GridPane.rowIndex="9" />
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+            <Label styleClass="label-bright" stylesheets="@DarkTheme.css" text="Save Each Month" />
+            <Label styleClass="label-bright" text="Years to Work" GridPane.rowIndex="1" />
+            <Label styleClass="label-bright" text="Annual Return Percent" GridPane.rowIndex="2" />
+            <Label styleClass="label-bright" text="What you need to save" GridPane.rowIndex="4" />
+            <Label styleClass="label-bright" text="Years Retired" GridPane.rowIndex="6" />
+            <Label styleClass="label-bright" text="Annual Return Percent" GridPane.rowIndex="7" />
+            <Label styleClass="label-bright" text="Required Monthly Income" GridPane.rowIndex="8" />
+            <Label styleClass="label-bright" text="Monthly SSI" GridPane.rowIndex="9" />
+            <HBox prefHeight="43.0" prefWidth="229.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
                <children>
-                  <Button mnemonicParsing="false" onAction="#btnClear" text="Clear">
+                  <Button mnemonicParsing="false" onAction="#btnClear" prefHeight="33.0" prefWidth="127.0" text="Clear">
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#btnCalculate" text="Calculate" />
+                  <Button mnemonicParsing="false" onAction="#btnCalculate" prefHeight="33.0" prefWidth="146.0" text="Calculate" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -72,7 +72,22 @@
                   <Insets />
                </GridPane.margin>
             </HBox>
-            <TextField fx:id="txtYearsToWork" prefHeight="25.0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="YearsToWork" prefHeight="25.0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="WorkReturn" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="YearsRetired" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="RetiredReturn" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="IncomeRetired" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="MonthlySSI" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <Label fx:id="TotalToSave" styleClass="label-bright" text="Please fill in the fields." />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <Label fx:id="MonthlyToSave" styleClass="label-bright" text="Please fill in the fields." />
+               </children>
+            </HBox>
          </children>
       </GridPane>
    </center>

@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 public class RetirementApp extends Application {
 
 	private RetirementController controller;
+	private Stage primaryStage;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -32,11 +33,13 @@ public class RetirementApp extends Application {
 			Scene scene = new Scene(ClientServerOverview);
 
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Retirement Calculator");
 
 			// Give the controller access to the main app.
 			RetirementController controller = loader.getController();
 			controller.setMainApp(this);
 			
+			this.primaryStage = primaryStage;
 			primaryStage.show();
 
 		} catch (IOException e) {
@@ -44,5 +47,7 @@ public class RetirementApp extends Application {
 		}
 		
 	}
-
+	public Stage getPrimaryStage() {
+		return this.primaryStage;
+	}
 }
